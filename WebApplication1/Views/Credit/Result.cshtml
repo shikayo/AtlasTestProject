@@ -1,0 +1,37 @@
+﻿@model ResultViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">№</th>
+      <th scope="col">Дата платежа</th>
+      <th scope="col">Сумма платежа</th>
+      <th scope="col">Основной долг</th>
+      <th scope="col">Проценты</th>
+      <th scope="col">Остаток долга</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var r in Model.Results)
+    {
+      <tr>
+        <th scope="row">@r.Number</th>
+        <td>@r.Date</td>
+        <td>@r.Amount</td>
+        <td>@r.Debt</td>
+        <td>@r.Percentages</td>
+        <td>@r.RemainingDebt</td>
+      </tr>
+    }
+    </tbody>
+  </table>
+  <div>
+    <p>Переплата по кредиту составит: @Model.OverPayment</p>
+  </div>
+</div>

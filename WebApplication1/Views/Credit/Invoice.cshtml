@@ -1,0 +1,21 @@
+﻿@model CreditInvoiceViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div style="justify-content: center;display: flex;align-items: center;margin-top: 10%;background: #d5ffe8;border-radius: 45px;flex-direction: column">
+    <div class="first-form">
+        <form asp-action="Calculate">
+            <p>Сумма: <input required="required" type="text" onkeypress='validate(event)' class="form-control" asp-for="Amount"/></p>
+            @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+            <p>Срок: <input required="required" type="text" onkeypress='validate(event)' class="form-control" asp-for="LoanDuration"/></p>
+            @Html.ValidationMessageFor(model => model.LoanDuration, "", new { @class = "text-danger" })
+            <p>Ставка: <input required="required" type="text" class="form-control" asp-for="LoanRate"/></p>
+            @Html.ValidationMessageFor(model => model.LoanRate, "", new { @class = "text-danger" })
+            <button style="margin-bottom: 10px;margin-left: 40px" class="btn btn-danger" type="submit">Рассчитать</button>
+        </form>
+    </div>
+</div>
+
