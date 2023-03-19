@@ -12,7 +12,7 @@
             @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
             <p>Срок: <input required="required" type="text" onkeypress='validate(event)' class="form-control" asp-for="LoanDuration"/></p>
             @Html.ValidationMessageFor(model => model.LoanDuration, "", new { @class = "text-danger" })
-            <p>Ставка: <input required="required" type="text" class="form-control" asp-for="LoanRate"/></p>
+            <p>Ставка: <input required="required" type="text" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 44 || (event.charCode >= 48 && event.charCode <= 57)))" class="form-control" asp-for="LoanRate"/></p>
             @Html.ValidationMessageFor(model => model.LoanRate, "", new { @class = "text-danger" })
             <button style="margin-bottom: 10px;margin-left: 40px" class="btn btn-danger" type="submit">Рассчитать</button>
         </form>
